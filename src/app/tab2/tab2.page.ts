@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 
 @Component({
   selector: 'app-tab2',
@@ -6,7 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
   constructor() {}
+  public async writeSecretFile (text: string) {
+    await Filesystem.writeFile({
+      path: './text.txt',
+      data: text,
+      directory: Directory.Documents,
+      encoding: Encoding.UTF8,
+    });
+  }
 
 }

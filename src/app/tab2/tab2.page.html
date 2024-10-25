@@ -13,5 +13,11 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <ion-item>
+    <ion-input placeholder="Ingresa cualquier texto"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-button (click)="writeSecretFile('s')" shape="round" style="margin: 0 auto; font-weight: 700; font-size: 1em;">Guardar en archivo txt</ion-button>
+  </ion-item>
+
 </ion-content>
