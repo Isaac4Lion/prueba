@@ -9,6 +9,7 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 export class Tab2Page {
   constructor() {}
   public async writeSecretFile (text: string) {
+    console.log(text)
     await Filesystem.writeFile({
       path: './text.txt',
       data: text,
