@@ -7,15 +7,22 @@ import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  constructor() {}
-  public async writeSecretFile (text: string) {
-    console.log(text)
-    await Filesystem.writeFile({
-      path: './text.txt',
-      data: text,
-      directory: Directory.Documents,
-      encoding: Encoding.UTF8,
-    });
-  }
+  inputText: string = '';
 
+  constructor() {}
+  
+  public async writeSecretFile(text: string) {
+    try {
+      console.log('Texto a guardar:', text);
+      await Filesystem.writeFile({
+        path: 'text.txt', // Usa solo el nombre del archivo
+        data: text,
+        directory: Directory.Documents,
+        encoding: Encoding.UTF8,
+      });
+      console.log('Archivo guardado correctamente');
+    } catch (error) {
+      console.error('Error al guardar el archivo:', error);
+    }
+  }
 }

@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" #content>
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Biografia</ion-title>
@@ -14,24 +14,36 @@
   </ion-header>
 
   <ion-card>
-    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+    <ion-img style="height: 40vh;"
+    src="https://res.cloudinary.com/dcax5qaud/image/upload/v1729461125/pawxorc36rpqledreknt.jpg">
+    </ion-img>
     <ion-card-header>
       <ion-card-title>Mi Biografia</ion-card-title>
-      <ion-card-subtitle>Isaac León</ion-card-subtitle>
+      <ion-item lines="none">
+        <ion-badge slot="end">Software Developer</ion-badge>
+        <ion-label>ISAAC LEÓN</ion-label>
+      </ion-item>
+      <ion-card-subtitle>Sobre mi</ion-card-subtitle>
     </ion-card-header>
   
     <ion-card-content>
-      Soy estudiante de la EPN, estudio la carrera de Desarrollo de Software
+      Nació en Cayambe
+Ecuador el 26 de octubre de 2003. 
+Realizó sus estudios secundarios en el 
+Instituto Natalia Jarrin. Actualmente, 
+cursa estudios de tercer nivel en la 
+Escuela Politécnica Nacional como 
+Tecnólogo de Desarrollo de Software. 
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card style="text-align: center;">
     <ion-card-header>
       <ion-card-title>Mis Habilidades</ion-card-title>
     </ion-card-header>
     <ion-card-content>
-      <ion-list>
-        <ion-item>
+      <ion-list >
+        <ion-item lines="none">
           <ion-icon name="logo-react"></ion-icon>
           <ion-label>React</ion-label>
         </ion-item>
@@ -50,15 +62,29 @@
       </ion-list>
     </ion-card-content>
 
-    <ion-chip>Default</ion-chip>
-    <ion-chip color="primary">Primary</ion-chip>
-    <ion-chip color="secondary">Secondary</ion-chip>
-    <ion-chip color="tertiary">Tertiary</ion-chip>
-    <ion-chip color="success">Success</ion-chip>
-    <ion-chip color="warning">Warning</ion-chip>
-    <ion-chip color="danger">Danger</ion-chip>
-    <ion-chip color="light">Light</ion-chip>
-    <ion-chip color="medium">Medium</ion-chip>
-    <ion-chip color="dark">Dark</ion-chip>
+    <ion-chip color="primary">Liderazgo</ion-chip>
+    <ion-chip color="secondary">Trabajo en Equipo</ion-chip>
+    <ion-chip color="tertiary">Creativo</ion-chip>
+    <ion-chip color="success">Habilidoso</ion-chip>
+    <ion-chip color="warning">Colaborativo</ion-chip>
+    <ion-chip color="danger">Confiable</ion-chip>
   </ion-card>
+
+  <ion-card style="text-align: center; font-weight: 600; font-size: 2em;">
+    <ion-button (click)="presentPopover($event)">Contacto</ion-button>
+    <ion-popover #popover [isOpen]="isOpen" (didDismiss)="isOpen = false">
+      <ng-template>
+        <ion-content class="ion-padding">
+          <span>Celular: 0969037943</span><br>
+          <span>GitHub: Isaac-Leon1</span><br>
+          <span>Correo: isaac1leon&#64;gmail.com</span>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
+  </ion-card>
+
+  <ion-button shape="round"color="dark" (click)="scrollToTop()">
+    Volver al Inicio <ion-icon name="arrow-up-outline"></ion-icon>
+  </ion-button>
+
 </ion-content>
